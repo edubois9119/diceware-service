@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.lang.NonNull;
 
 @Entity
 @JsonIgnoreProperties({"id", "passphrase"})
@@ -25,9 +26,9 @@ public class Word {
   @Column(nullable = false, updatable = false)
   private String word;
 
+  @NonNull
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name= "passphrase_id", nullable = false, updatable = false)
-  @OnDelete(action = OnDeleteAction.CASCADE)
   private Passphrase passphrase;
 
   public String getWord() {
