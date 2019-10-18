@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/passphrases")
 @ExposesResourceFor(Passphrase.class)
-public class DicewareController {
+public class PassphraseController {
 
   //Fields
   private final PassphraseGenerator generator;
@@ -34,7 +34,7 @@ public class DicewareController {
 
   //Constructor
   @Autowired
-  public DicewareController(PassphraseGenerator generator,
+  public PassphraseController(PassphraseGenerator generator,
       PassphraseRepository passphraseRepository) {
     this.generator = generator;
     this.passphraseRepository = passphraseRepository;
