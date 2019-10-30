@@ -41,11 +41,11 @@ public class GoogleTokenService implements ResourceServerTokenServices {
       throws AuthenticationException, InvalidTokenException {
     try {
       HttpTransport transport= new NetHttpTransport();
-      JacksonFactory jsonFactory = new JacksonFactory();              //serialize and deserialize json
+      JacksonFactory jsonFactory = new JacksonFactory();           //serialize and deserialize json
       GoogleIdTokenVerifier verifier= new GoogleIdTokenVerifier.Builder(transport, jsonFactory)
           .setAudience(Collections.singletonList(clientId))
           .build();
-      GoogleIdToken idToken= verifier.verify(token);                                   //verifies user
+      GoogleIdToken idToken= verifier.verify(token);                                //verifies user
       if (idToken != null) {
         Payload payload= idToken.getPayload();
         //TODO Check user registry (if any) for roles, restrictions, etc)

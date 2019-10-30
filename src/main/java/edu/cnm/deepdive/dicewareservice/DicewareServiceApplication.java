@@ -49,7 +49,7 @@ public class DicewareServiceApplication extends ResourceServerConfigurerAdapter 
   @Override
   public void configure(HttpSecurity http) throws Exception {
     http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
- //   http.authorizeRequests().anyRequest().anonymous();
+ //   http.authorizeRequests().anyRequest().permitAll();
     http.authorizeRequests().anyRequest().hasRole("USER");
   }
 }
